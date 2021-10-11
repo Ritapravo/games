@@ -30,9 +30,10 @@
     /* margin:4px ; */
     text-align: center;
 }
-h3{
+h3,h1{
     color:honeydew;
 }
+
 span{
     margin-right: 15px;
 }
