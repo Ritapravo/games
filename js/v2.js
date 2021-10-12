@@ -4,8 +4,7 @@
 let speed = 100; //for determining movement speed of cursor
 let turn = false; //(turn==true)=>green && (turn==false)=>red
 let dice_val = 0; //random value generated on dice roll
-let space_enabled = true;
-let enter_enabled = false;
+let over = true;
 
 // STATING THAT INITIAL TURN WILL BE OF GREEN
 document.getElementById('turn').innerHTML = "GREEN";
@@ -54,23 +53,21 @@ function y_val(z) {
     }
 } 
 
-function rollDice(a,b, turn) { 
+function rollDice(a,b, turn) {
     dice_val = Math.round(a+(b-a)*Math.random());
     //console.log("dice value " +dice_val);
     document.getElementById('dice_val').innerHTML = dice_val ;
     
     if(turn===true && player1.z +dice_val> 100){
-        space_enabled = true;
+        over = true;
         return dice_val;
 
     }
     if(turn===false && player2.z +dice_val> 100){
-        space_enabled = true;
+        over = true;
         return dice_val;
     }
-    //gameEngine(dice_val);
-    enter_enabled=true;
-    document.getElementById('roller').innerHTML = "Press Enter to move the Dice." ;
+    gameEngine(dice_val);
     return dice_val;
 } 
 
@@ -159,9 +156,7 @@ function check() {
             display_players();
         }, speed );
     }
-    document.getElementById('dice_val').innerHTML = "..." ;
-    document.getElementById('roller').innerHTML = "Press Space to Roll the Dice." ;
-    space_enabled = true;
+    over = true;
 }
 
 var intervalID1 ;
@@ -207,24 +202,20 @@ function gameEngine(dice_val){
 
 
 window.addEventListener('keydown', e => {
-    switch(e.key){
-        case " ":
-            if(space_enabled){
-                space_enabled = false;
+    if (over){
+        switch(e.key){
+            case " ":
+                over = false;
+                //e.preventDefault();
                 turn = !turn;
                 console.log("Space");
                 rollDice(1,6, turn);
-            }
-            break;
-        case "Enter":
-            if(enter_enabled){
-                enter_enabled = false;
-                console.log("Enter");
-                gameEngine(dice_val);
-            }
-        default:
-            break;
-        
+                //gameEngine();
+                break;
+            default:
+                break;
+            
+        }
     }
 });
 
@@ -258,14 +249,6 @@ function move1(z=100) {
     //console.log(player1);
     if (player1.z === z) {
         window.clearInterval(intervalID1);
-        if(player1.z===100 ){
-            
-            setTimeout(() => {
-                alert("Game Over. Winner is Green!\nRefresh to start a new game");
-            }, speed+100);
-            
-            
-        }
         check();
     }
 }
@@ -297,12 +280,6 @@ function move2(z=100) {
     //console.log(player2);
     if (player2.z === z) {
         window.clearInterval(intervalID2);
-        if(player2.z===100){
-            setTimeout(() => {
-                alert("Game Over. Winner is Green!\nRefresh to start a new game");
-            }, speed+100);
-        
-        }
         check();
     }
 }
@@ -399,10 +376,10 @@ function display_board() {
     check();
 
     if(player1.z===100 ){
-        alert("Game space_enabled. Winner is Green! ");
+        alert("Game Over. Winner is Green! ");
     }
     if(player2.z===100){
-        alert("Game space_enabled. Winner is Red! ");
+        alert("Game Over. Winner is Red! ");
     }
 
 } */
