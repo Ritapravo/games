@@ -3,7 +3,7 @@
 }
 .container{
     background-color: rgb(2, 53, 53);
-    min-height: 90vh;
+    min-height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,8 +14,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width:90vmin;
-    height: 90vmin;
+    width:80vmin;
+    height: 80vmin;
     border: 1px solid black;
     justify-content: center;
     display: grid;
@@ -51,14 +51,14 @@ span{
 
 .position1{
     margin: 35% 40% 15% 10%;
-    
+    /* position: absolute; */
     background-color: rgb(14, 221, 66);
     border-radius: 50%;
     border: 1px solid rgb(0, 0, 0);
 }
 .position2{
     margin: 35% 10% 15% 40%;
-    
+    /* position: absolute; */
     background-color: rgb(241, 34, 34);
     border-radius: 50%;
     border: 1px solid rgb(0, 0, 0);
@@ -68,3 +68,4 @@ span{
     position: relative;
     width:100%;
 }
+
