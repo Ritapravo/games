@@ -2,7 +2,7 @@
 
 // GLOBAL VARIABLES
 let speed = 100; //for determining movement speed of cursor
-let turn = false; //(turn==true)=>green && (turn==false)=>red
+let turn = true; //(turn==true)=>green && (turn==false)=>red
 let dice_val = 0; //random value generated on dice roll
 let space_enabled = true;
 let enter_enabled = false;
@@ -24,6 +24,8 @@ function display_players() {
     position1.style.gridRowStart = player1.x;
     position1.style.gridColumnStart = player1.y;
     position1.classList.add('position1');
+    
+
     board.appendChild(position1);
 
     // Display the player2(Red)
@@ -35,6 +37,13 @@ function display_players() {
     board.appendChild(position2);
 }
 display_players();
+
+
+/* if(turn){ */
+
+    //document.getElementById('pos1').classList.add('blinker1');
+// }
+
 
 
 function x_val(z) {
@@ -55,10 +64,17 @@ function y_val(z) {
 } 
 
 function rollDice(a,b, turn) { 
+    if(turn){
+        document.getElementById('pos1').classList.add('blinker1');
+    }
+    else{
+        document.getElementById('pos2').classList.add('blinker2');
+    }
     dice_val = Math.round(a+(b-a)*Math.random());
     //console.log("dice value " +dice_val);
     document.getElementById('dice_val').innerHTML = dice_val ;
-    
+    document.getElementById('dice_val_button').innerHTML = dice_val ;
+
     if(turn===true && player1.z +dice_val> 100){
         space_enabled = true;
         return dice_val;
@@ -157,9 +173,10 @@ function check() {
             document.getElementById('pos1').remove();
             document.getElementById('pos2').remove();
             display_players();
-        }, speed );
+        }, speed+100);
     }
     document.getElementById('dice_val').innerHTML = "..." ;
+    document.getElementById('dice_val_button').innerHTML = "..." ;
     document.getElementById('roller').innerHTML = "Press Space to Roll the Dice." ;
     space_enabled = true;
 }
@@ -191,14 +208,14 @@ function gameEngine(dice_val){
     // console.log("player1.y "+player1.y);
     // console.log("player1.z "+player1.z);
     // check();
-
+    
     if(player1.z===100 ){
         alert("Game Over. Winner is Green!\nRefresh to start a new game");
     }
     if(player2.z===100){
         alert("Game Over. Winner is Red!\nRefresh to start a new game ");
     }
-
+    turn = !turn;
 }
 
 
@@ -211,7 +228,7 @@ window.addEventListener('keydown', e => {
         case " ":
             if(space_enabled){
                 space_enabled = false;
-                turn = !turn;
+                
                 console.log("Space");
                 rollDice(1,6, turn);
                 if(turn){
@@ -224,6 +241,7 @@ window.addEventListener('keydown', e => {
                         click_div();
                     };
                 }
+                /* turn = !turn; */
             }
             break;
         case "Enter":
@@ -259,7 +277,7 @@ function roller_clicked() {
     console.log("roller clicked");
     if(space_enabled){
         space_enabled = false;
-        turn = !turn;
+        
         console.log("Space");
         rollDice(1,6, turn);
         if(turn){
@@ -272,6 +290,7 @@ function roller_clicked() {
                 click_div();
             };
         }
+        /* turn = !turn; */
     }
 }
 
@@ -307,6 +326,7 @@ function move1(z=100) {
     //console.log(player1);
     if (player1.z === z) {
         window.clearInterval(intervalID1);
+        //document.getElementById('pos2').classList.add('blinker1');
         if(player1.z===100 ){
             
             setTimeout(() => {
@@ -346,9 +366,10 @@ function move2(z=100) {
     //console.log(player2);
     if (player2.z === z) {
         window.clearInterval(intervalID2);
+        //document.getElementById('pos1').classList.add('blinker1');
         if(player2.z===100){
             setTimeout(() => {
-                alert("Game Over. Winner is Green!\nRefresh to start a new game");
+                alert("Game Over. Winner is Red!\nRefresh to start a new game");
             }, speed+100);
         
         }
