@@ -214,16 +214,6 @@ window.addEventListener('keydown', e => {
                 turn = !turn;
                 console.log("Space");
                 rollDice(1,6, turn);
-                if(turn){
-                    document.getElementById('pos1').onclick=function(){
-                        click_div();
-                    };
-                }
-                else{
-                    document.getElementById('pos2').onclick=function(){
-                        click_div();
-                    };
-                }
             }
             break;
         case "Enter":
@@ -237,38 +227,6 @@ window.addEventListener('keydown', e => {
         
     }
 });
-
-// ADDING THE ON-CLICK EVENTS
-
-function click_div() {
-    if(enter_enabled){
-        enter_enabled = false;
-        console.log("Enter"); 
-        gameEngine(dice_val);
-    }
-}
-
-document.getElementById('roller').onclick=function(){
-    console.log("roller clicked");
-    if(space_enabled){
-        space_enabled = false;
-        turn = !turn;
-        console.log("Space");
-        rollDice(1,6, turn);
-        if(turn){
-            document.getElementById('pos1').onclick=function(){
-                click_div();
-            };
-        }
-        else{
-            document.getElementById('pos2').onclick=function(){
-                click_div();
-            };
-        }
-    }
-}
-
-
 
 //var intervalID1 = setInterval(move1, 100);
 //var intervalID2 = setInterval(move2, 100);
@@ -386,7 +344,7 @@ function display_board() {
                 board.appendChild(boxElement2);
             }
         } 
-    } 
+    }
     // Code for inserting snake
     /* img = document.createElement('img');
     img.src = "img/b2.png";
