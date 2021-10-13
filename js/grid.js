@@ -12,8 +12,9 @@ document.getElementById('turn').innerHTML = "GREEN";
 
 // INITIALIZING THE CO-ORDINATES OF PLAYERS
 player1 = {x:10, y:1, z:1};
+//player1 = {x:1, y:5, z:96};
+//player2 = {x:1, y:5, z:96};
 player2 = {x:10, y:1, z:1};
-
 
 
 
@@ -71,21 +72,29 @@ function rollDice(a,b, turn) {
         document.getElementById('pos2').classList.add('blinker2');
     }
     dice_val = Math.round(a+(b-a)*Math.random());
+    //dice_val = 4;
     //console.log("dice value " +dice_val);
     document.getElementById('dice_val').innerHTML = dice_val ;
     document.getElementById('dice_val_button').innerHTML = dice_val ;
 
-    if(turn===true && player1.z +dice_val> 100){
+    /* if(turn===true && player1.z +dice_val> 100){
         space_enabled = true;
+        enter_enabled = false;
+        turn = !turn;
         return dice_val;
 
     }
-    if(turn===false && player2.z +dice_val> 100){
+    else if(turn===false && player2.z +dice_val> 100){
+        console.log("player2 dice value: "+(player2.z +dice_val));
         space_enabled = true;
+        enter_enabled = false;
+        turn = !turn;
         return dice_val;
-    }
+    } */
     //gameEngine(dice_val);
+    
     enter_enabled=true;
+    
     document.getElementById('roller').innerHTML = "Press Enter to move the Dice." ;
     return dice_val;
 } 
@@ -189,6 +198,9 @@ function gameEngine(dice_val){
     console.log("turn "+turn);
     if(turn){
         document.getElementById('turn').innerHTML = "RED";
+        if(player1.z+dice_val>100){
+            dice_val = 0;
+        }
         intervalID1 = setInterval(move1, speed, player1.z+dice_val);
 
         console.log("player1.x "+player1.x);
@@ -196,6 +208,9 @@ function gameEngine(dice_val){
         console.log("player1.z "+player1.z);
     }
     else{
+        if(player2.z+dice_val>100){
+            dice_val = 0;
+        }
         document.getElementById('turn').innerHTML = "GREEN";
         intervalID2 = setInterval(move2, speed, player2.z+dice_val);
         console.log("player2.x "+player2.x);
@@ -300,6 +315,12 @@ function roller_clicked() {
 //var intervalID2 = setInterval(move2, 100);
 
 function move1(z=100) {
+    if (player1.z === z) {
+        window.clearInterval(intervalID1);
+        document.getElementById('pos1').classList.remove('blinker1');
+        check();
+        return;
+    }
     let temp = Math.floor((player1.z)/10);
     //console.log(temp);
     document.getElementById('pos1').remove();
@@ -340,6 +361,12 @@ function move1(z=100) {
 }
 
 function move2(z=100) {
+    if (player2.z === z) {
+        window.clearInterval(intervalID2);
+        document.getElementById('pos2').classList.remove('blinker2');
+        check();
+        return;
+    }
     let temp = Math.floor((player2.z)/10);
     //console.log(temp);
     document.getElementById('pos2').remove();
