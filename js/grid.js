@@ -249,6 +249,13 @@ function click_div() {
 }
 
 document.getElementById('roller').onclick=function(){
+    roller_clicked();
+}
+document.getElementById('roll_button').onclick=function(){
+    roller_clicked();
+}
+
+function roller_clicked() {
     console.log("roller clicked");
     if(space_enabled){
         space_enabled = false;
