@@ -26,6 +26,7 @@
     grid-template-columns: repeat(10,1fr);
     row-gap: 1px;
     column-gap: 1px;
+    border: 2px solid rgb(11, 236, 67);
 }
 #intro{
     /* margin:4px ; */
@@ -143,6 +144,7 @@ span{
 }
 
 .blinker1{
+    cursor: pointer;
     animation: animate1 1s linear infinite;
 }
 
@@ -164,13 +166,14 @@ span{
 }
 
 .blinker2{
+    cursor: pointer;
     animation: animate2 1s linear infinite;
 }
 
 @keyframes animate2 {
     0% {
         opacity: 0.4;
-        margin: 35% 10% 15% 40%%;
+        margin: 35% 10% 15% 40%;
     }
 
     50% {
