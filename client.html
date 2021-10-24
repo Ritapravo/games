@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <title>Game</title>
+    </head>
+    <body>
+        <h2 id="pos">Positions:1,1</h2>
+        <button onClick="createRoom()">Create room</button><br>
+        <input type="text" class="ip">
+        <button onClick="joinRoom()">Join room</button><br>
+        <button onClick="play()">Play</button>
+        <h1 id="data"></h1>
+    </body>
+
+    <script src="https://cdn.socket.io/3.1.3/socket.io.min.js"></script>
+
+    <script>
+        var pos1=1; 
+        var pos2=1;
+        var turn=0;
+        var gameStarted=0;
+        //const socket = io('http://localhost:3000');
+        const socket = io('https://snake-n-ladder-game.herokuapp.com/');
+        //const socket = io('https://gowtham-3.github.io/snl/');
+        socket.on('connected', connect());
+
+        //socket.on('disconnected',disconnect())
+
+        socket.on('message',(msg) => {
+            console.log(msg);
+        });
+
+        socket.on('id',(msg) => {
+            document.getElementById("data").innerHTML="Room id:"+msg;
+        });
+
+        socket.on('move',()=>{
+            setTurn();
+        });
+
+        socket.on('joined', () => {
+            document.getElementById("data").innerHTML = "Opponent will start the game";
+        });
+
+        socket.on('err',(msg) => {
+            document.getElementById("data").innerHTML = msg;
+        });
+
+        socket.on('reflect',(msg) => {
+            reflect(msg);
+        });
+
+        socket.on('gameStarted', () => {
+            gameStarted=1;
+        });
+
+        function setTurn()
+        {
+            turn=1;
+            document.getElementById("data").innerHTML="Your turn"
+        }
+
+        function reflect(msg)
+        {
+            console.log("Opponents move:",msg);
+            pos2+=parseInt(msg);
+            document.getElementById("pos").innerHTML = 'Positions:'+pos1+','+pos2;
+            socket.emit('ack');
+        }
+
+        function play()
+        {
+            if(gameStarted==0)
+            {
+                document.getElementById("data").innerHTML = "Opponent hasn't joined the game yet! Wait for the opponent";
+                return;
+            }
+            if(turn==1)
+            {
+                console.log("made a move");
+                var dval = Math.ceil(Math.random() * 6);
+                pos1+=dval;
+                socket.emit('dieValue',dval);
+                document.getElementById("pos").innerHTML = 'Positions:'+pos1+','+pos2;
+                document.getElementById("data").innerHTML = "Opponent's turn";
+                turn=0;
+            }
+            else
+                document.getElementById("data").innerHTML="Wait for your turn";
+        }
+
+        function joinRoom()
+        {
+            console.log("clicked");
+            const msg = document.querySelector('.ip').value;
+            document.querySelector('.ip').value ="";
+            socket.emit('joinRoom', msg);
+        }
+        
+        function createRoom()
+        {
+            socket.emit('createRoom');
+
+        }
+
+        function connect()
+        {
+            socket.emit('test');
+            console.log("Connection established");
+        }
+
+        function disconnect()
+        {
+            socket.emit('message','close');
+        }
+    </script>
+</html>
+
