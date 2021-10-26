@@ -2,8 +2,6 @@
     return 'Refreshing will make you lose your current progress\nDo you really want to continue';
 } */
 
-
-
 document.getElementById("board_container").style.display = "none";
 document.getElementById("roll_button").style.display = "none";
 
@@ -120,13 +118,11 @@ function setTurn()
 
 //====================== DISPLAY PLAYER FUNCTION ===========================
 
- /**
-     * display_players() takes the global values of player1 and player2 coordinates,
-    creates a div element with id(pos1 and pos2) and class(position1 and position2)
-    and paints the markers to the screen
-     */
-
 function display_players() {
+    // display_players() takes the global values of player1 and player2 coordinates,
+    // creates a div element with id(pos1 and pos2) and class(position1 and position2)
+    // and paints the markers to the screen
+
     // Display the player1(Green)
     position1 = document.createElement('div');
     position1.id = 'pos1';
@@ -148,23 +144,13 @@ display_players();
 
 // ================== X & Y VALUE FINDING FUNCTIONS ======================
 
-/**
- * x_val(z) takes the z co-ordinate as input and returns its corresponding value of 'x'
- * @param {int} z the value of z-coordinate
- * @returns {int} x the x-coordinate value corresponding to z
- */
-
 function x_val(z) {
     // x_val(z) takes the z co-ordinate as input and returns its corresponding 
     // value of 'x'
     return 10-Math.floor((z-1)/10);
 } 
 
-/**
- * x_val(z) takes the z co-ordinate as input and returns its corresponding value of 'y'
- * @param {int} z the value of z-coordinate
- * @returns {int} y the x-coordinate value corresponding to z
- */
+
 function y_val(z) {
     // y_val(z) takes the z co-ordinate as input and returns its corresponding 
     // value of 'y'
@@ -183,13 +169,6 @@ function y_val(z) {
 
 // ======================= ROLL DICE EFUNCTION ============================
 
-/**
- * rollDice simply rolls the dice and updates the dice_val
- * @param {int} a the start of the range of values the die can take(generally a=1)
- * @param {int} b the start of the range of values the die can take(generally b=6)
- * @param {bool} turn turn is used to indicate if it is the turn of the current player
- * @returns {int} 
- */
 function rollDice(a,b, turn) { 
     // rollDice simply rolls the dice and updates the dice_val
     if(turn){
@@ -201,7 +180,6 @@ function rollDice(a,b, turn) {
         document.getElementById('pos2').classList.add('blinker2');
     }
     dice_val = Math.round(a+(b-a)*Math.random());
-    //dice_val = 1;
     //socket.emit('dieValue',""+dice_val);
     document.getElementById('dice_val').innerHTML = dice_val ;
     document.getElementById('dice_val_button').innerHTML = dice_val ;
@@ -211,11 +189,6 @@ function rollDice(a,b, turn) {
     return dice_val;
 } 
 
-/**
- * gameEngine() takes the global variable dice_val, checks the turn value, 
- * calls move1/move2 with setInterval respectively to move the makers to their new location
- * after moving it just switches the value of turn variable and gives chance to the other player
- */
 
 function gameEngine(){
     // gameEngine() takes the dice_val as arguement, checks the turn value, 
@@ -310,7 +283,6 @@ window.addEventListener('keydown', e => {
 
 // ==================ADDING THE ON-CLICK EVENTS======================
 
-
 function click_div() {
     if(enter_enabled){
         enter_enabled = false;
@@ -348,26 +320,14 @@ function roller_clicked() {
             /* turn = !turn; */
         }
     }
-    else{
-        if(turn==false){
-            document.getElementById("data").innerHTML="Wait for you turn";
-        }
-        else{
-            document.getElementById("data").innerHTML="Click on your coin to move";
-        }
-    }
-
+    else
+        document.getElementById("data").innerHTML="Wait for you turn";
 }
 
 
 // ====================== move functions ==========================
 
-/**
- * move1 function takes the new position of the marker by the z-coordinate of the current player 
- * and sequentially moves it to the new position step by step.
- * @param {int} z 
- * @returns 
- */
+
 function move1(z=100) {
     if (player1.z === z) {
         window.clearInterval(intervalID1);
@@ -417,12 +377,7 @@ function move1(z=100) {
         //change_colors();
     }
 }
-/**
- * move1 function takes the new position of the marker by the z-coordinate of the opponent player 
- * and sequentially moves it to the new position step by step.
- * @param {int} z 
- * @returns 
- */
+
 function move2(z=100) {
     if (player2.z === z) {
         window.clearInterval(intervalID2);
@@ -475,11 +430,6 @@ function move2(z=100) {
 
 // ============================= CHECK FUNCTION ==========================
 
-/**
- * check() determines if the markers have landed on some snake or ladder,
- * if it lands on such event it updates the position markers and calls
- * the display_players() function to paint the markers to its updated location
- */
 function check() {
     // check() determines if the markers have landed on some snake or ladder,
     // if it lands on such event it updates the position markers and calls
@@ -577,9 +527,7 @@ function check() {
     
     document.getElementById('roller').innerHTML = "Press Space to Roll the Dice." ;
     space_enabled = true;
-    // setTimeout(change_colors, speed);
-    
-    
+    setTimeout(change_colors, speed);
     setTimeout(() => {
         if(turn){
             document.getElementById('turn').innerHTML = "YOUR TURN";
@@ -588,7 +536,6 @@ function check() {
             document.getElementById('turn').innerHTML = "OPPONENT'S TURN";
             document.getElementById('pos2').classList.add('blinker2');
         }
-        change_colors();
     }, speed*1.5);
     
 }
@@ -596,9 +543,6 @@ function check() {
 
 // ================== changing colors ====================
 
-/**
- * changes the border color and button color when turn is changed
- */
 function change_colors() {
     console.log("change-colors function entered");
     if(turn){
@@ -615,9 +559,7 @@ function change_colors() {
     }
 }
 
-/**
- * displays the empty board
- */
+
 
 function display_board() {
     // FOR DISPLAYING THE EMPTY BOARD(NO NEED WHEN USING BACKGROUND IMAGE)
