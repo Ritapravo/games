@@ -90,6 +90,8 @@ function connect()
 
 function createRoom()
 {
+    document.querySelector('.createRoom_button').remove();
+    document.querySelector('.joinRoom_button').remove();
     socket.emit('createRoom');
 }
 
