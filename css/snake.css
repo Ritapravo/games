@@ -130,10 +130,8 @@ h2{
         height: 28vmin;
         /* border: 2px solid black; */
         display: grid;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(3, 1fr);
-        row-gap: 10px;
-        column-gap: 10px;
+        row-gap: 20px;
+        column-gap: 20px;
     }
 }
 
