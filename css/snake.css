@@ -130,12 +130,12 @@ h2{
     }
     #keys{
         /* background: linear-gradient(rgb(181, 243, 181), rgb(231, 231, 33)); */
-        width: 45vmin;
-        height: 28vmin;
+        width: 60vmin;
+        height: 32vmin;
         /* border: 2px solid black; */
         display: grid;
         row-gap: 30px;
-        column-gap: 30px;
+        column-gap: 50px;
     }
 }
 
