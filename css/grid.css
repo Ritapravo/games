@@ -262,8 +262,9 @@ span{
 }
 
 @media only screen and (max-width: 800px) {
+
     .container{
-        min-height: 80vh;
+        min-height: 60vh;
     }
     #board{
         width:95vmin;
