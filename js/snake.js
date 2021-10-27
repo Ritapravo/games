@@ -188,7 +188,7 @@ function display_keys() {
     
     // down arrow
     boxElement2 = document.createElement('div');
-    boxElement2.style.gridRowStart = 3;
+    boxElement2.style.gridRowStart = 2;
     boxElement2.style.gridColumnStart = 2;
     boxElement2.classList.add('item2');
     keys.appendChild(boxElement2);

@@ -91,7 +91,7 @@ h2{
     height: 21vmin;
     /* border: 2px solid black; */
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(3, 1fr);
     row-gap: 10px;
     column-gap: 10px;
@@ -130,12 +130,12 @@ h2{
     }
     #keys{
         /* background: linear-gradient(rgb(181, 243, 181), rgb(231, 231, 33)); */
-        width: 42vmin;
-        height: 42vmin;
+        width: 45vmin;
+        height: 28vmin;
         /* border: 2px solid black; */
         display: grid;
-        row-gap: 20px;
-        column-gap: 20px;
+        row-gap: 30px;
+        column-gap: 30px;
     }
 }
 
