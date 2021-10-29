@@ -3,6 +3,7 @@
  * It consists of a number of single/multiplayer games that one can play in the browser itself
  
  ## Multiplayer Games
+ ## Designed by team Boolean
  ### version 1.0
  ### For playing and testing the game:
 
@@ -11,7 +12,7 @@
 **documentation:** <a href="https://ritapravo.github.io/games/out/index.html" target="_blank">ritapravo.github.io/games/out/index.html</a>
 * NOTE: The 2 above links may change
 
- ## team Boolean
+
  ### authors 
  * Gunjan Kumari 
  * Ritapravo Sarker 
