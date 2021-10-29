@@ -4,7 +4,7 @@
 }
 .container{
     background-color: rgb(2, 53, 53);
-    min-height: 70vh;
+    min-height: 65vh;
     display: flex;
     justify-content: center;
     align-items: center;

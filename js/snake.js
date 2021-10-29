@@ -45,12 +45,12 @@ function main(ctime){
 
 
 function display_food() {
-    foodElement = document.createElement('div');
-    foodElement.style.gridRowStart = food.y;
-    foodElement.id = 'food_elem';
-    foodElement.style.gridColumnStart = food.x;
-    foodElement.classList.add('food');
-    board.appendChild(foodElement);
+    food_particle = document.createElement('div');
+    food_particle.style.gridRowStart = food.y;
+    food_particle.id = 'food_elem';
+    food_particle.style.gridColumnStart = food.x;
+    food_particle.classList.add('food');
+    board.appendChild(food_particle);
     document.getElementById('food_elem').style.animation = "animate 0.5s linear infinite";
 }
 
@@ -60,7 +60,11 @@ function gameEngine(){
     if(Check()){
         direction ={x:0, y:0};
         alert("Game Over. Press any key to play again! Your Score: "+score);
-        snake = [{x:13, y:15}];
+        let a = 2;
+        let b = 16;
+        let x_val = Math.round(a+(b-a)*Math.random());
+        let y_val = Math.round(a+(b-a)*Math.random());
+        snake = [{x:x_val, y:y_val}];
         score = 0;
     }
     // If you have eaten the food, increment the score and regenerate the food
@@ -99,13 +103,8 @@ function gameEngine(){
     })
 
     // Display the food
-    foodElement = document.createElement('div');
-    foodElement.style.gridRowStart = food.y;
-    foodElement.id = 'food_elem';
-    foodElement.style.gridColumnStart = food.x;
-    foodElement.classList.add('food');
-    board.appendChild(foodElement);
-    document.getElementById('food_elem').style.animation = "animate 0.5s linear infinite";
+    display_food();
+    
 }
 
 
