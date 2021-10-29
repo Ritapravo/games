@@ -26,14 +26,17 @@
 
 ## List of features:
 *    a. Single player (snake game)
-*    b. Multi player (snakes & ladders)
+*    b. Multi player (snakes & ladders/ tic-tac-toe-local)
 *    c. Can play with computer. (tic-tac-toe-player1 and player2)
-*    d. Players at different places can play together.(tic-tac-toe-local)
+*    d. Players at different places can play together.(snakes & ladders)
 
 ## Technology stack:
     a. HTML
     b. CSS
-    c. Node js
+    c. JavaScript
+    d. Node js
+    e. ExpressJS
+    f. socket.io
 
 ## List of deliverables:
     
