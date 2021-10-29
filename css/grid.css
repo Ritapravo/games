@@ -45,6 +45,13 @@ span{
 #roller:hover{
     color: aqua;
 }
+
+#roller{
+    cursor: default;
+}
+#data:hover{
+    color: aqua;
+}
 /* <!-- HTML !-->
 <button class="button" role="button">Button 3</button> */
 

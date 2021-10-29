@@ -68,9 +68,15 @@ socket.on('joined', () => {
 
 socket.on('err',(msg) => {
     //console.log(msg);
-    document.getElementById("data").innerHTML = msg; 
-    document.getElementById('roller').innerHTML = msg;
+    // document.getElementById("data").innerHTML = msg; 
+    // document.getElementById('roller').innerHTML = msg;
+    document.getElementById("data").innerHTML = "Opponent Disconnected! Click to close the game"; 
+    document.getElementById('roller').innerHTML = "Opponent Disconnected! Click to close the game";
+    document.getElementById('data').style.cursor="pointer"
     document.getElementById('roller').onclick=function(){
+        window.location.reload();
+    };
+    document.getElementById('data').onclick=function(){
         window.location.reload();
     };
 });
