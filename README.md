@@ -4,6 +4,13 @@
  
  ## Multiplayer Games
  ### version 1.0
+ ### For playing and testing the game:
+
+**visit:** <a href="https://ritapravo.github.io/games" target="_blank">ritapravo.github.io/games</a>
+
+**documentation:** <a href="https://ritapravo.github.io/games/out/index.html" target="_blank">ritapravo.github.io/games/out/index.html</a>
+* NOTE: The 2 above links may change
+
  ## team Boolean
  ### authors 
  * Gunjan Kumari 
@@ -59,10 +66,5 @@
 ## Path to code documentation:
 <a href="./out/index.html" target="_blank">./out/index.html</a>
 
-## For playing and testing the game:
 
-**visit:** <a href="https://ritapravo.github.io/games" target="_blank">ritapravo.github.io/games</a>
-
-**documentation:** <a href="https://ritapravo.github.io/games/out/index.html" target="_blank">ritapravo.github.io/games/out/index.html</a>
-* NOTE: The 2 above links may change
 
