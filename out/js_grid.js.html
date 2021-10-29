@@ -26,11 +26,9 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/* window.onbeforeunload = function () {
-    return 'Refreshing will make you lose your current progress\nDo you really want to continue';
-} */
-
-
+            <pre class="prettyprint source linenums"><code>// This is the JavaScript file for the client part of Snakes &amp; Ladders
+// and is linked to grid.html
+// [v1, v2, v3, v4, v5, v6].js are just backup versions of grid.js
 
 document.getElementById("board_container").style.display = "none";
 document.getElementById("roll_button").style.display = "none";
@@ -96,9 +94,15 @@ socket.on('joined', () => {
 
 socket.on('err',(msg) => {
     //console.log(msg);
-    document.getElementById("data").innerHTML = msg; 
-    document.getElementById('roller').innerHTML = msg;
+    // document.getElementById("data").innerHTML = msg; 
+    // document.getElementById('roller').innerHTML = msg;
+    document.getElementById("data").innerHTML = "Opponent Disconnected! Click to close the game"; 
+    document.getElementById('roller').innerHTML = "Opponent Disconnected! Click to close the game";
+    document.getElementById('data').style.cursor="pointer"
     document.getElementById('roller').onclick=function(){
+        window.location.reload();
+    };
+    document.getElementById('data').onclick=function(){
         window.location.reload();
     };
 });
@@ -262,7 +266,7 @@ function rollDice(a,b, turn) {
     document.getElementById('dice_val_button').innerHTML = dice_val ;
     enter_enabled=true; 
     
-    document.getElementById('roller').innerHTML = "Click on your coin or press Enter to move" ;
+    document.getElementById('roller').innerHTML = "Click your coin or hit Enter to move" ;
     return dice_val;
 } 
 
@@ -353,8 +357,8 @@ window.addEventListener('keydown', e => {
                     document.getElementById('roller').innerHTML = "Wait for you turn" ;
                 }
                 else{
-                    document.getElementById("data").innerHTML="Click on your coin or press Enter to move";
-                    document.getElementById('roller').innerHTML = "Click on your coin or press Enter to move" ;
+                    document.getElementById("data").innerHTML="Click your coin or hit Enter to move";
+                    document.getElementById('roller').innerHTML = "Click your coin or hit Enter to move" ;
                 }
             }
             break;
@@ -418,8 +422,8 @@ function roller_clicked() {
             document.getElementById('roller').innerHTML = "Wait for you turn" ;
         }
         else{
-            document.getElementById("data").innerHTML="Click on your coin or press Enter to move";
-            document.getElementById('roller').innerHTML = "Click on your coin or press Enter to move" ;
+            document.getElementById("data").innerHTML="Click your coin or hit Enter to move";
+            document.getElementById('roller').innerHTML = "Click your coin or hit Enter to move" ;
         }
     }
 
@@ -721,6 +725,9 @@ function display_board() {
     
 
 }
+
+
+// References: Mostly made from scratch
 </code></pre>
         </article>
     </section>
@@ -731,13 +738,13 @@ function display_board() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#change_colors">change_colors</a></li><li><a href="global.html#check">check</a></li><li><a href="global.html#Check">Check</a></li><li><a href="global.html#connect">connect</a></li><li><a href="global.html#createRoom">createRoom</a></li><li><a href="global.html#disconnected">disconnected</a></li><li><a href="global.html#display_board">display_board</a></li><li><a href="global.html#display_food">display_food</a></li><li><a href="global.html#display_keys">display_keys</a></li><li><a href="global.html#display_players">display_players</a></li><li><a href="global.html#displayLevel">displayLevel</a></li><li><a href="global.html#displayScore">displayScore</a></li><li><a href="global.html#gameEngine">gameEngine</a></li><li><a href="global.html#joinRoom">joinRoom</a></li><li><a href="global.html#madeMove">madeMove</a></li><li><a href="global.html#makeAck">makeAck</a></li><li><a href="global.html#makeid">makeid</a></li><li><a href="global.html#move1">move1</a></li><li><a href="global.html#move2">move2</a></li><li><a href="global.html#rollDice">rollDice</a></li><li><a href="global.html#setTurn">setTurn</a></li><li><a href="global.html#x_val">x_val</a></li><li><a href="global.html#y_val">y_val</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#change_colors">change_colors</a></li><li><a href="global.html#changeTurn">changeTurn</a></li><li><a href="global.html#check">check</a></li><li><a href="global.html#Check">Check</a></li><li><a href="global.html#checkWin">checkWin</a></li><li><a href="global.html#connect">connect</a></li><li><a href="global.html#createRoom">createRoom</a></li><li><a href="global.html#disconnected">disconnected</a></li><li><a href="global.html#display_board">display_board</a></li><li><a href="global.html#display_food">display_food</a></li><li><a href="global.html#display_keys">display_keys</a></li><li><a href="global.html#display_players">display_players</a></li><li><a href="global.html#displayLevel">displayLevel</a></li><li><a href="global.html#displayScore">displayScore</a></li><li><a href="global.html#gameEngine">gameEngine</a></li><li><a href="global.html#joinRoom">joinRoom</a></li><li><a href="global.html#madeMove">madeMove</a></li><li><a href="global.html#makeAck">makeAck</a></li><li><a href="global.html#makeid">makeid</a></li><li><a href="global.html#move1">move1</a></li><li><a href="global.html#move2">move2</a></li><li><a href="global.html#rollDice">rollDice</a></li><li><a href="global.html#setTurn">setTurn</a></li><li><a href="global.html#x_val">x_val</a></li><li><a href="global.html#y_val">y_val</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Oct 29 2021 16:07:58 GMT+0530 (India Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Oct 29 2021 23:25:13 GMT+0530 (India Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

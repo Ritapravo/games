@@ -1,3 +1,7 @@
+
+// This is the backup of code for the server corresponding to Snakes and Ladders
+// The actual code for this is in the main directory [gameServer.js]
+
 const http = require('http');
 const path = require('path');
 const express = require('express');

@@ -1,3 +1,5 @@
+/* This is the CSS part of TIC-TAC-TOE and is linked to tictactoe.html */
+
 .gameContainer{
 	background-color: lightblue ;
 	display: flex;
@@ -7,11 +9,13 @@
 /*.body{
 	background-color: blue;
 }*/
+/*//references: https://www.youtube.com/watch?v=sSLGP-_2gOI&t*/
 .container{
 	display: grid;
 	grid-template-rows: repeat(3,10vw);
 	grid-template-columns: repeat(3, 10vw);
 }
+/*//references: https://www.youtube.com/watch?v=sSLGP-_2gOI&t*/
 .box{
 	border: 2px solid black;
 	font-size: 7vw;
@@ -23,10 +27,13 @@
 .box:hover{
 	background-color: grey;
 }
-/* .gameStat{
-	padding: 80px;
-	font-size: 1.5vw;
-} */
+.gameStat{
+	/*padding: 80px;*/
+	/*font-size: 1.5vw;*/
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
 .bt-0{
 	border-top: 0;
 }
@@ -38,11 +45,4 @@
 }
 .br-0{
 	border-right: 0;
-}
-.gameStat{
-	/*padding: 80px;*/
-	/*font-size: 1.5vw;*/
-	align-items: center;
-	justify-content: center;
-	display: flex;
 }

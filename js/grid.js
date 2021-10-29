@@ -1,8 +1,6 @@
-/* window.onbeforeunload = function () {
-    return 'Refreshing will make you lose your current progress\nDo you really want to continue';
-} */
-
-
+// This is the JavaScript file for the client part of Snakes & Ladders
+// and is linked to grid.html
+// [v1, v2, v3, v4, v5, v6].js are just backup versions of grid.js
 
 document.getElementById("board_container").style.display = "none";
 document.getElementById("roll_button").style.display = "none";
@@ -699,3 +697,6 @@ function display_board() {
     
 
 }
+
+
+// References: Mostly made from scratch

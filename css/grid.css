@@ -1,3 +1,5 @@
+/* This is the CSS part of SNAKE Game and is linked to snake.html */
+
 /* https://getcssscan.com/css-buttons-examples */
 *{
     background-color: rgb(2, 53, 53);
@@ -56,6 +58,8 @@ span{
 <button class="button" role="button">Button 3</button> */
 
 /* CSS */
+
+/* https://getcssscan.com/css-buttons-examples */
 .button_container{
     display: flex;
     align-items: center;

@@ -1,3 +1,5 @@
+// This is the JavaScript code of the Snake Game and is linked to snake.html
+
 // Game Constants & Variables
 //https://www.pinclipart.com/pins/snake/
 
@@ -237,3 +239,12 @@ function display_keys() {
 
 }
 display_keys();
+
+
+
+// Reference: Code With Harry
+// https://youtu.be/2ZDnw6ifdSI
+/* Modifications:
+    Added support for mobiles and tablets
+    Added level functionality 
+    Can be played on any device */

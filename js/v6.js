@@ -1,3 +1,7 @@
+// [v1, v2, v3, v4, v5, v6].js are just backup versions of grid.js
+// please ignore these files
+
+
 /* window.onbeforeunload = function () {
     return 'Refreshing will make you lose your current progress\nDo you really want to continue';
 } */
