@@ -234,7 +234,7 @@ function rollDice(a,b, turn) {
     document.getElementById('dice_val_button').innerHTML = dice_val ;
     enter_enabled=true; 
     
-    document.getElementById('roller').innerHTML = "Click on your coin or press Enter to move" ;
+    document.getElementById('roller').innerHTML = "Click your coin or hit Enter to move" ;
     return dice_val;
 } 
 
@@ -325,8 +325,8 @@ window.addEventListener('keydown', e => {
                     document.getElementById('roller').innerHTML = "Wait for you turn" ;
                 }
                 else{
-                    document.getElementById("data").innerHTML="Click on your coin or press Enter to move";
-                    document.getElementById('roller').innerHTML = "Click on your coin or press Enter to move" ;
+                    document.getElementById("data").innerHTML="Click your coin or hit Enter to move";
+                    document.getElementById('roller').innerHTML = "Click your coin or hit Enter to move" ;
                 }
             }
             break;
@@ -390,8 +390,8 @@ function roller_clicked() {
             document.getElementById('roller').innerHTML = "Wait for you turn" ;
         }
         else{
-            document.getElementById("data").innerHTML="Click on your coin or press Enter to move";
-            document.getElementById('roller').innerHTML = "Click on your coin or press Enter to move" ;
+            document.getElementById("data").innerHTML="Click your coin or hit Enter to move";
+            document.getElementById('roller').innerHTML = "Click your coin or hit Enter to move" ;
         }
     }
 
