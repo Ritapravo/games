@@ -325,7 +325,7 @@ window.addEventListener('keydown', e => {
                     document.getElementById('roller').innerHTML = "Wait for you turn" ;
                 }
                 else{
-                    document.getElementById("data").innerHTML="Click on your coin to move";
+                    document.getElementById("data").innerHTML="Click on your coin or press Enter to move";
                     document.getElementById('roller').innerHTML = "Click on your coin or press Enter to move" ;
                 }
             }
@@ -384,12 +384,13 @@ function roller_clicked() {
         }
     }
     else{
+        //if(!enter_enabled)return;
         if(turn==false){
             document.getElementById("data").innerHTML="Wait for you turn";
             document.getElementById('roller').innerHTML = "Wait for you turn" ;
         }
         else{
-            document.getElementById("data").innerHTML="Click on your coin to move";
+            document.getElementById("data").innerHTML="Click on your coin or press Enter to move";
             document.getElementById('roller').innerHTML = "Click on your coin or press Enter to move" ;
         }
     }
@@ -613,6 +614,7 @@ function check() {
     }, 2*speed);
     
     document.getElementById('roller').innerHTML = "Press Space to Roll the Dice." ;
+    document.getElementById("data").innerHTML="";
     space_enabled = true;
     // setTimeout(change_colors, speed);
     
