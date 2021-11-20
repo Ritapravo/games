@@ -1,3 +1,5 @@
+/* This is the CSS part of SNAKE Game and is linked to snake.html */
+
 *{
     padding: 0;
     margin: 0;
@@ -54,9 +56,9 @@ h2{
     margin: 8%;
 }
 .food{
-    background-color: rgb(4, 61, 18);
+    background-color: rgb(18, 236, 73);
     border-radius: 50%;
-    border: 3px solid rgb(0, 0, 0);
+    border: 3px solid rgb(5, 102, 73);
     animation: animate 1s linear infinite;
 }
 
@@ -74,4 +76,94 @@ h2{
       opacity: 2.0;
       margin: 10%
     }
+}
+
+.key_container{
+    background-color: rgb(2, 53, 53);
+    /* min-height: 80vh; */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#keys{
+    /* background: linear-gradient(rgb(181, 243, 181), rgb(231, 231, 33)); */
+    width: 21vmin;
+    height: 21vmin;
+    /* border: 2px solid black; */
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+
+.item1{
+    background-color: rgb(2, 53, 53);
+    width: 100%;
+    height: 100%;
+    
+}
+.item2{
+    background-color: rgb(236, 162, 92);
+    width: 100%;
+    height: 100%;
+    margin: 5%;
+    border: 2px solid black;
+    border-radius: 10%;
+}
+
+@media only screen and (max-width: 800px) {
+    .body{
+        min-height: 60vh;
+    }
+    .container{
+        min-height: 60vh;
+    }
+    #board{
+        width:95vmin;
+        height: 95vmin;
+    }
+    .key_container{
+        /* min-height: 80vh; */
+        display: flex;
+    }
+    #keys{
+        /* background: linear-gradient(rgb(181, 243, 181), rgb(231, 231, 33)); */
+        width: 60vmin;
+        height: 32vmin;
+        /* border: 2px solid black; */
+        display: grid;
+        row-gap: 30px;
+        column-gap: 50px;
+    }
+}
+
+/* .arrow {
+    border: solid black;
+    border-width: 0 30px 30px 0;
+    display: inline-block;
+    padding: 3px;
   }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  } */
